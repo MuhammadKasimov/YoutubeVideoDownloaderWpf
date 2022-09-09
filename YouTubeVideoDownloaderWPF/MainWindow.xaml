@@ -1,0 +1,79 @@
+﻿<Window
+    x:Class="YouTubeVideoDownloaderWPF.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:YouTubeVideoDownloaderWPF"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+    Title="YouTubeVideoDownloader"
+    Width="500"
+    Height="330"
+    mc:Ignorable="d">
+    <Grid Background="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="3*" />
+        </Grid.RowDefinitions>
+
+        <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <md:PackIcon
+                Width="30"
+                Height="30"
+                Margin="5"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                Foreground="Red"
+                Kind="Youtube" />
+
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="22"
+                FontWeight="SemiBold"
+                Text="YouTube Video Downloader" />
+        </DockPanel>
+
+        <StackPanel Grid.Row="1">
+
+            <TextBox
+                x:Name="VideoLinkTbUI"
+                Width="250"
+                Height="30"
+                Margin="20"
+                VerticalContentAlignment="Center"
+                md:HintAssist.Hint="Youtube video link"
+                TextChanged="VideoLinkTbUI_TextChanged" />
+
+            <DockPanel Width="250" Margin="10">
+
+                <ComboBox
+                    x:Name="VideoResolutionCmbUI"
+                    Width="100"
+                    Height="25"
+                    HorizontalContentAlignment="Center"
+                    md:HintAssist.Hint="Resolution"
+                    IsEnabled="False" />
+
+                <Button
+                    x:Name="SaveBtnUI"
+                    Width="40"
+                    Height="40"
+                    HorizontalAlignment="Right"
+                    md:ButtonProgressAssist.IsIndeterminate="True"
+                    md:ButtonProgressAssist.IsIndicatorVisible="False"
+                    md:ButtonProgressAssist.Value="-1"
+                    Click="SaveButton_Click"
+                    IsEnabled="False"
+                    Style="{StaticResource MaterialDesignFloatingActionButton}"
+                    ToolTip="Choose folder">
+                    <md:PackIcon
+                        Width="20"
+                        Height="20"
+                        Kind="FolderDownloadOutline" />
+                </Button>
+            </DockPanel>
+        </StackPanel>
+    </Grid>
+</Window>
